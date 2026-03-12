@@ -1,0 +1,83 @@
+---
+import BlogHeader from "../components/blog/BlogHeader.astro"
+import Marquee from "../components/portfolio/Marquee.svelte"
+import "../styles/layout.css"
+const { frontmatter } = Astro.props
+
+const {title, tags, description, show_hero, hero_image} = frontmatter
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/svg/blog_favicon.svg">
+    <meta name="generator" content={Astro.generator}>
+    <meta name="keywords" content={tags.join(", ")}>
+    <meta name="description" content={description}>
+    <title>{title} - Ava Dinh-Vu </title>
+</head>
+<body>
+    <Marquee color="blue" lines={[...tags, title.toLowerCase(), "by ava dinh-vu",  "welcome to my blog"]}/>
+
+    <BlogHeader/>
+
+    <div class="content">
+        <div class="info popout" >
+            <h1 id="title">{title}</h1>
+            <p id="description">{description}</p>
+            <p id="author">By Ava Dinh-Vu</p>
+        </div>
+
+        {show_hero && <img class="feature hero-image" src={hero_image}/>}
+        
+
+        <slot/>
+
+        <div class="popout footer">
+            <a href="/blog/">☆Read more of my blog☆</a>
+            <a href="https://crossword.blue">☆Play my crossword☆</a>
+        </div>
+    </div>
+
+    
+
+
+</body>
+</html>
+
+<style>
+    #author, #description {
+        font-weight: normal;
+        font-size: larger;
+        text-align: right;
+    }
+
+    #title {
+        font-size: xxx-large;
+    }
+
+    .info {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .info > * {
+        margin-top: 1rem;
+    }
+
+    .hero-image {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-fit: cover;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-around
+    }
+
+    .footer a {
+        color: blue;
+    }
+</style>

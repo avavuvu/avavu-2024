@@ -1,0 +1,50 @@
+---
+import SVGTitle from "../SVGTitle.svelte";
+import MusicCard from "./MusicCard.svelte";
+---
+
+<section class="music-section" id="music">
+    <SVGTitle text="♫Music♫" fill="black" textLength="50%"></SVGTitle>
+    
+    <div class="music-container">
+        <MusicCard year="2021" imageSrc="/music/albumgifs/jars.gif"
+            appleMusic="https://music.apple.com/us/album/life-in-jars-ep/1577303765"
+            spotify="https://open.spotify.com/album/5OiYwivCgNmTns9NYghvuc"
+            bandcamp="https://anemia.bandcamp.com/album/life-in-jars"
+            title="Life in Jars"
+            info="Featured on Bandcamp's New and Notable">
+        </MusicCard>
+        <MusicCard year="2023" isReverse={true} imageSrc="/music/albumgifs/bmay.gif"
+            appleMusic="https://music.apple.com/us/album/between-me-you-ep/1688895997"
+            spotify="https://open.spotify.com/album/6OlgFi7ICRVw2CYFkf7Urn"
+            bandcamp="https://anemia.bandcamp.com/album/between-me-you"
+            title="Between Me & You"
+            >
+        </MusicCard>
+        <MusicCard year="2022" imageSrc="/music/albumgifs/apoc.gif"
+            appleMusic="https://open.spotify.com/album/2oQ04Uis4mFgkF371qCXXC"
+            bandcamp="https://anemia.bandcamp.com/album/how-to-look-forward-to-the-apocalypse"
+            spotify="https://music.apple.com/us/album/how-to-look-forward-to-the-apocalypse/1611812299"
+            title="How to Look Foward to the Apocalypse"
+            >
+        </MusicCard>
+
+    </div>
+</section>
+
+<style>
+    section {
+        padding-bottom: 10rem;
+    }
+
+    .music-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+
+        gap: 30px;
+    }
+
+</style>

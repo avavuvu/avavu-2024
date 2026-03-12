@@ -1,0 +1,63 @@
+---
+import SVGTitle from "../SVGTitle.svelte"
+const allVideos = await Astro.glob("../../content/videos/*.md")
+
+---
+
+<section class="youtube" id="youtube">
+    <SVGTitle text="☆Youtube Videos☆" fill="red"></SVGTitle>
+    
+    <div class="videos content">
+        {
+            allVideos.sort((videoA, videoB) => videoB.frontmatter.date - videoA.frontmatter.date).map((video) => (
+                <div class="video feature">
+                    <div class="bg" style={{backgroundColor: video.frontmatter.color, color: video.frontmatter.text_color || "white"}}>
+                        <a href={video.frontmatter.video_url}>
+                            <img class="thumbnail" loading="lazy" src={`/thumbnails/${video.frontmatter.thumbnail_url}`}/>
+                            <h1 class="title">
+                                {video.frontmatter.title}
+                            </h1>
+                        </a>
+                    </div>
+                </div>
+                <div class="description">
+                    <p set:html={video.compiledContent()}/>    
+                </div>
+            ))
+        }
+    </div>
+
+</section>
+
+<style>
+
+    a {
+        all: unset;
+        cursor: pointer;
+    }
+
+    
+
+    .videos {
+        display: grid;
+    }
+
+    .description {
+        margin-bottom: 60px;
+    }
+    
+    img {
+        width: 100%; 
+        aspect-ratio: 16 / 9;
+    }
+
+    .video img:nth-of-type(1) {
+        clip-path: polygon(100.00% 50.00%,-175.24% -58.47%,81.17% 89.09%,-5.63% -193.73%,38.87% 98.75%,205.87% -145.46%,4.95% 71.69%,300.00% 50.00%,4.95% 28.31%,205.87% 245.46%,38.87% 1.25%,-5.63% 293.73%,81.17% 10.91%,-175.24% 158.47%);
+    }
+
+    h1 {
+        text-align: center;
+        padding-bottom: 1em;
+        margin: 0 2em;
+    }
+</style>

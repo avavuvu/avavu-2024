@@ -1,0 +1,33 @@
+{
+  "name": "absent-ascension",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/mdx": "^3.1.2",
+    "@astrojs/node": "^8.2.5",
+    "@astrojs/rss": "^4.0.6",
+    "@astrojs/sitemap": "^3.1.5",
+    "@astrojs/svelte": "^5.4.0",
+    "@neodrag/svelte": "^2.0.6",
+    "@svgdotjs/svg.js": "^3.2.0",
+    "@types/ua-parser-js": "^0.7.39",
+    "astro": "^4.5.12",
+    "date-fns": "^3.6.0",
+    "firebase": "^10.11.0",
+    "node-cron": "^3.0.3",
+    "svelte": "^5.0.0-next.133",
+    "typescript": "^5.4.5",
+    "ua-parser-js": "^1.0.38"
+  },
+  "devDependencies": {
+    "@types/node-cron": "^3.0.11"
+  }
+}

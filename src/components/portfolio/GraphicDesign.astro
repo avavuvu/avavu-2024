@@ -1,0 +1,33 @@
+---
+import Gallery from "../Gallery.svelte"
+import GalleryImage from "../GalleryImage.svelte"
+import SVGTitle from "../SVGTitle.svelte"
+const gallery1 = await Astro.glob("../../content/posters/gallery1/*")
+const gallery2 = await Astro.glob("../../content/posters/gallery2/*")
+---
+
+
+
+<section class="graphic-design" id="graphic-design">
+    <SVGTitle text="☆Poster Design☆" fill="white"/>
+
+    <Gallery 
+        special={ {index: 4, html: `
+           Find me on <a style="color: lime;" href="https://www.instagram.com/dinhvudesigns">instagram</a> for all my designs`}}
+        record={gallery1} 
+        client:idle/>
+
+    <Gallery record={gallery2} client:idle/>
+</section>
+
+<style>
+    h2 {
+        color: white;
+        text-align: center;
+        font-size: 10rem;
+    }
+
+    section {
+        background-color: rgb(0, 0, 183);
+    }
+</style>

@@ -1,0 +1,46 @@
+---
+import SVGTitle from "../SVGTitle.svelte";
+import SoundCard from "./SoundCard.svelte";
+---
+
+<section id="sound-design">
+    <SVGTitle text="☆Sound Design☆" fill="pink"></SVGTitle>
+    
+    <div class="sound-container">
+        <div class="grid-item">
+            <SoundCard videoLink="https://www.youtube.com/watch?v=eVh1kp2aano" year="2021" info="Original animation and soundtrack" title="love lost jellyfish"/>
+        </div>
+        <div class="grid-item">
+            <SoundCard videoLink="https://www.youtube.com/watch?v=mKN4hAKu70I" year="2023" info="Animation by Boisvert" title="Boisvert Rescore"/>
+        </div>
+        <div class="grid-item">
+            <SoundCard 
+                videoLink="https://www.youtube.com/watch?v=QOPbX-g8rdQ" 
+                year="2023" 
+                info="University of Melbourne funded short film" 
+                title="whale video"/>
+        </div>
+        <div class="grid-item">
+            <SoundCard videoLink="https://www.youtube.com/watch?v=X-USLu16pl0" year="2023" info="Sound design experiment in sound-visual mapping" title="Cafe Figures"/>
+        </div>
+        <div class="grid-item">
+            <SoundCard videoLink="https://www.youtube.com/watch?v=Gyd-lH8Vic4" year="2023" info="Rain" title="Ambient thriller"/>
+        </div>
+    </div>
+</section>
+
+<style>
+    .sound-container {
+        padding-bottom: 40px
+    }
+
+    .grid-item {
+        display: flex;
+        justify-content: center;
+        padding-top: 1rem;
+    }
+    
+    section {
+        background-color: coral;
+    }
+</style>

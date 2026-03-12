@@ -1,0 +1,91 @@
+---
+import BlogHeader from "../components/blog/BlogHeader.astro"
+import BlogFooter from "../components/blog/BlogFooter.astro"
+import "../styles/layout.css"
+import Marquee from "../components/portfolio/Marquee.svelte"
+
+const glob = await Astro.glob("./blog/*")
+
+const posts = glob
+    .map(md => ({
+        url: md.url,
+        title: md.frontmatter.title,
+        date: md.frontmatter.publish_date,
+        image: md.frontmatter.hero_image}))
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+---
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/svg/blog_favicon.svg">
+    <meta name="generator" content={Astro.generator}>
+    <title>Ava Dinh-Vu's Blog</title>
+</head>
+<body>
+    <Marquee color="blue" lines={["", "welcome to my blog", "", "welcome to my blog"]}/>
+
+    <BlogHeader height="300px"/>
+
+    <div class="content">
+        
+
+        <div class="description">
+            <p>things i think about</p>
+        </div>
+        
+        {
+            posts.map((post) => {
+                return (
+                    <div class="post">
+                        <a href={post.url}>
+                            <h1>{post.title}</h1>
+                            <p>{post.date}</p>
+                            <hr />
+                            <img class="hero-image" src={post.image}/>
+                        </a>
+                    </div>
+                )
+            })
+        }
+
+        <BlogFooter/>
+       
+    </div>
+</body>
+</html>
+
+<style>
+    a {
+        all: unset;
+        cursor: pointer;
+    }
+
+    .post:hover  {
+        background-color: blue;
+        color: white
+    }
+
+    .post {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .description {
+        text-align: center;
+    }
+    
+    hr {
+        border: solid 1px black;
+    }
+
+    .hero-image {
+        width: 100%;
+        aspect-ratio: 2 / 1;
+        object-fit: cover;
+        margin-bottom: 10px;
+    }
+</style>

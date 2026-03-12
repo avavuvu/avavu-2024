@@ -1,0 +1,62 @@
+---
+import "../styles/layout.css"
+import Videos from "../components/portfolio/Videos.astro"
+import GraphicDesign from "../components/portfolio/GraphicDesign.astro"
+import Simon from "../components/portfolio/Simon.svelte"
+import IndexSection from "../components/portfolio/IndexSection.svelte"
+import ProfileSection from "../components/portfolio/ProfileSection.svelte"
+import Music from "../components/portfolio/Music.astro"
+import Sound from "../components/portfolio/Sound.astro"
+import Footer from "../components/portfolio/Footer.svelte"
+import SlideNavBar from "../components/portfolio/SlideNavBar.svelte"
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="generator" content={Astro.generator}>
+    <title>Ava Dinh-Vu</title>
+    <link rel="icon" type="image/svg+xml" href="/svg/favicon.svg">
+    <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="Ava Dinh-Vu"
+        href={`${Astro.site}rss.xml`}
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <style>
+        html,body {
+            overflow-x: hidden;
+            margin:0;
+            paddig: 0;
+        }
+    </style>
+</head>
+<body>
+    <IndexSection client:idle/>
+
+    <SlideNavBar client:load/>
+
+    
+    <ProfileSection/>
+    
+    <GraphicDesign/>
+    <Videos/>
+    <Sound/>
+    <Music/>
+    <Footer/>
+
+    <Simon client:idle/>
+</body>
+</html>
+
+<style>
+    body {
+        overflow-x: hidden;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
